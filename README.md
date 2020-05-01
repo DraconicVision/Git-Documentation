@@ -1,7 +1,7 @@
 # Git Notes
 **Note**:   Before using git ensure you have it installed. Install from *https://git-scm.com/*
 
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+***
 ## Git Init
 **Source**: *https://youtu.be/fBNz5xF-Kx4?t=5217*
 
@@ -12,7 +12,7 @@ on the GitHub website if you wish to have it stored in the GitHub cloud.
 To initialse a directory which **should be done every time you start a new project** you can do 
 > git init
 
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+***
 ## Git Remote
 **Source**: *https://help.github.com/en/github/using-git/adding-a-remote*
 
@@ -21,8 +21,8 @@ To check which remote URL you are using you can do
 
 -v Stands for verbose, essentially it elaborates on the detail of the command. To add the remote origin you wish for you can do 
 > git remote add origin <!--SSH URL to the repo here-->
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
+***
 ## Git Branching
 **Source**: *https://www.youtube.com/watch?v=QG44fDn_PMc&list=PLnTRniWXnjf_abqo7qnrPsqo148VRYxjv&index=4*
 **Note**:   Remember, **all code in the master branch should be functioning** and ready for production. Use other branches for
@@ -40,8 +40,7 @@ entering the command above.
 To switch branches do 
 > git checkout <!--Desired branch name here-->
 
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-
+***
 ## Git SSH
 **Source**: *https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh*
             *https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent*
@@ -74,15 +73,13 @@ go to your github webpage, go to settings > SSH and GPG keys > add new key and g
 of your PC (Ex: Work PC, Home desktop, etc.) and the OS you are using on it. If you are using multiple VMs on a PC the SSH key will 
 differ from OS to OS. After you have given it a title paste the key into the input and add the key.
 
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-
+***
 ## Git clone
 
 > git clone <!--Paste the SSH of the repo here, no quotes or syntax-->
 This will download the repo you wish to your local PC.
 
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-
+***
 ## Git Commit, Add & Push
 **Source**: *https://www.youtube.com/watch?v=nquxBcx929o&list=PLnTRniWXnjf_abqo7qnrPsqo148VRYxjv&index=3*
 
@@ -128,3 +125,5 @@ and close the tab with ctrl + f4. Once the tab is closed the changes will be com
 
 To upload your commited changes to Github you can do
 > git push origin <!--Branch name here-->
+
+***
