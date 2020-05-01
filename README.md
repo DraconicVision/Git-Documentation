@@ -23,6 +23,13 @@ To check which remote URL you are using you can do
 > git remote add origin <!--SSH URL to the repo here-->
 
 ***
+## Git log
+
+If you wish to check all the recent commits and merges simply do 
+> git log
+
+This will display your logs in terminal.
+***
 ## Git Branching
 **Source**: *https://www.youtube.com/watch?v=QG44fDn_PMc&list=PLnTRniWXnjf_abqo7qnrPsqo148VRYxjv&index=4*
 **Note**:   Remember, **all code in the master branch should be functioning** and ready for production. Use other branches for
@@ -40,6 +47,8 @@ entering the command above.
 To switch branches do 
 > git checkout <!--Desired branch name here-->
 
+To both create a new branch and switch to that branch in one command do 
+> git checkout -b <!--Git branch name here-->
 ***
 ## Git SSH
 **Source**: *https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh*
@@ -126,4 +135,91 @@ and close the tab with ctrl + f4. Once the tab is closed the changes will be com
 To upload your commited changes to Github you can do
 > git push origin <!--Branch name here-->
 
+To reduce the amount of writing you have to do per every time you git push I recommend you do
+> git push --set-upstream origin <!--Branch name here-->
+
+From then on all you will have to do is 
+> git push
+
+To push to the upstream branch you have chosen.
+
+***
+## Git Merging
+**Source**: *https://nvie.com/posts/a-successful-git-branching-model/*
+            *https://www.atlassian.com/git/tutorials/using-branches/git-merge*
+            *https://www.youtube.com/watch?v=icUggPL4qpY&list=PLnTRniWXnjf_abqo7qnrPsqo148VRYxjv&index=5*
+
+Merging two branches is combining the commit history of both branches into one unified branch. To merge one branch with another do
+> git merge --no-ff <!--Branch name here-->
+
+A merge message will come up, you can enter a descriptive merge message if you wish. I highly recommend you use --no-ff (no fast
+forward) as that allows much more structure in version history.
+
+It's possible to get a conflict while merging, ensure that any conflicts are carefully looked over and decide which versions of the code
+you do and do not want. You can have both, none or just one.
+
+***
+## Undoing Changes & Reverting Commits
+
+### Git Reset
+**Source**: *https://www.youtube.com/watch?v=g8UgXgqEJXs&list=PLnTRniWXnjf_abqo7qnrPsqo148VRYxjv&index=6*
+
+If for some reason you want to delete all the code you have modified since your last commit it is possible to do that using
+> git reset --hard
+
+This will actually delete all of the code made since the last commit, I do not recommend doing this. You have been warned.
+
+More likely you may want to revert a commit but not actually delete all of the code, this can be done by doing
+> git reset --soft HEAD~1
+
+What this does is it reverts the last commit to the staging phase and does not remove any code. The HEAD bit of the command means that it
+reverts from the current head which is the branch you are on currently. If you do 
+> git status
+
+You should see the files you modified are staged but not yet comitted.
+
+### Removing a Pushed Commit from your Repository
+**Source** *https://www.youtube.com/watch?v=g8UgXgqEJXs&list=PLnTRniWXnjf_abqo7qnrPsqo148VRYxjv&index=6*
+
+Right, you messed up. Bad. It happens, generally if you push some buggy code to the master there is no need to remove it you can just add another commit
+which removes the buggy code and that's fine. The issue with this though is that there is still evidence of the previous buggy commit and people can view that 
+buggy code. Worse again if there is sensitive information in the pushed commit people can still view that no matter how many more commits you add to the branch.
+First off, you're an idiot. **Be very careful about pushing anything**. Second, don't freak out. This can be fixed providing you catch yourself before you make 
+another commit.
+
+After you push a commit you wish to revert do
+> git reset --soft HEAD~1
+
+This will take you back one commit but it will still keep your changes. You can then delete (or add to the .gitignore list) the files you do not want or delete the
+lines of code you don't want on your remote repository. You can then do 
+
+> git status
+
+Check the files in which you have modified, ensure you have removed any sensitive information you don't want pushed. Then do 
+> git add .
+> git status
+
+You will then see that in the terminal there have been no percieved changes. This is because you are sort of one commit behind, at least locally. After the sensitive
+information has been removed you can do 
+> git push -f origin <!--Branch Name-->
+
+-f Stands for force, this is forcing the origin to get rid of the previous commit (the one you wanted removed.)
+
+**Note**, you can also do this with git reset --hard HEAD~1 in place of git reset --soft HEAD~1 if you want, this will auto delete all the code since the last commit so it
+can be a bit quicker but can also lead to losing code. I recommend using git reset --soft HEAD~1 . 
+
+### Git Checkout
+**Source**: *https://www.youtube.com/watch?v=g8UgXgqEJXs&list=PLnTRniWXnjf_abqo7qnrPsqo148VRYxjv&index=6*
+
+If you have modified a file since your last commit and you only want to undo the modifications to that file rather than reseting the entire
+branch you can first do 
+> git status
+
+Check that you have not commited or staged the file you want to revert to the state it was in at the last commit and do 
+> git checkout <!--FileName-->.<!--FileExtension-->
+
+For example you could do 
+> git checkout index.html
+
+To just revert index.html and nothing else. I recommend this over git reset --hard in almost all situations.
 ***
