@@ -76,8 +76,8 @@ differ from OS to OS. After you have given it a title paste the key into the inp
 ***
 ## Git clone
 
-> git clone <!--Paste the SSH of the repo here, no quotes or syntax-->
 This will download the repo you wish to your local PC.
+> git clone <!--Paste the SSH of the repo here, no quotes or syntax-->
 
 ***
 ## Git Commit, Add & Push
