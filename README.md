@@ -225,6 +225,12 @@ To just revert index.html and nothing else. I recommend this over git reset --ha
 
 ***
 ## Git Stash
+**Source**: *https://www.youtube.com/watch?v=-QKlyw_Q2uw&list=PLnTRniWXnjf_abqo7qnrPsqo148VRYxjv&index=7*
+**Note**:   Your stash is stored within .git/refs/ with a file simply titled "stash." Since it is stored within your .git folder on your local repository it will not be pushed
+            to your remote repository.
+
+            I generally do not recommend git stash as if you are using multiple branches correctly (see Nvie article linked aside Git branching) it's generally not needed in most
+            cases although some users seem to love it, I'll leave its usage up to you.
 
 In the event you are working on something and you have to direct your attention to another part of the project before you could finish the work you are already working on git
 stash can be useful. To stash your changes since your last commit do 
@@ -232,6 +238,50 @@ stash can be useful. To stash your changes since your last commit do
 > git status
 > git stash
 
-Remember to check that you haven't staged anything you don't want to stage
+Remember to check that you haven't staged anything you don't want to stash. Once you have stashed the desired modifications you can do
+> git stash list
 
+To check what's in your stash. It will display the branch the stash is in and at which commit it was stashed at. When you are ready to reapply the changes in your stash you can do
+> git stash apply stash@{0}
+
+This will reapply the changes which are stored inside that stash. This will not delete the saved changes within the stash but if you want to reapply the changes within the stash 
+and delete the last changes in the stash you can simply do 
+> git stash pop
+
+To clear your stash you can simply do 
+> git stash clear
+
+***
+## .gitignore
+**Source**: *https://www.youtube.com/watch?v=h-1EBRYBUwA&list=PLnTRniWXnjf_abqo7qnrPsqo148VRYxjv&index=8*
+            *https://github.com/github/gitignore*
+
+There is a lot that you can do with .gitignore and you can ignore all manner of particulars with it but for this documentation I'm going to keep it simple. Ensure when creating a 
+.gitignore file it is called **simply .gitignore with no file extension**. When creating a .gitignore file I highly recommend you make one and only the one in the root of your
+repository directory. You can make more .gitignore files in folders within the directory which will only affect those folders but for the sake of your sanity and the sanity of
+anyone collaborating with you I highly recommend you stick to my initial suggestion. All rules within .gitignore must be separated with a line. Ex:
+> *.example
+> example.js
+> ExampleFolder/
+
+**Not**:
+> *.example example.js ExampleFolder/
+
+To create a comment in a .gitignore file add a # at the start of the line.
+To ignore a file within .gitignore simply add the file name and extension into a line in the .gitignore file such as 
+> example.js
+
+To ignore all files with a particular file extension simply add 
+> *.ExampleFileExtension
+
+To ignore all files within a folder thats in the root directory simply add
+> ExampleFolder/
+
+To exempt an item or items from your .gitignore pattern you can add a ! in front of the the line, Ex:
+> !example.html
+> !*.ExampleFileExtension
+> !ExampleFolder/
+
+To start ignoring a file you have already committed you must remove the file from your local repo, commit that you have removed the file, add the rule in .gitignore to ignore the 
+desired file and then add the file back, once you have added the file back it should be ignored in accordance with your .gitignore rules.
 ***
