@@ -6,7 +6,7 @@
 **Source**: *https://youtu.be/fBNz5xF-Kx4?t=5217*
 
 Before initialising any project first create a **README.md** file and a **.gitignore** file in the root directory of the project. 
-You can put all the folder and file names in the .gitignore to ignore them when commiting. Remember, you must also create a repo
+You can put all the folder and file names in the .gitignore to ignore them when committing. Remember, you must also create a repo
 on the GitHub website if you wish to have it stored in the GitHub cloud.
 
 To initialse a directory which **should be done every time you start a new project** you can do 
@@ -94,10 +94,10 @@ This will download the repo you wish to your local PC.
 
 ### Git Staging & Status
 
-Before commiting anything I recommend you do
+Before committing anything I recommend you do
 > git status 
 
-This will tell you the branch you are on, which files are staged and which are untracked. **Ensure before commiting anything that you**
+This will tell you the branch you are on, which files are staged and which are untracked. **Ensure before committing anything that you**
 **have only the files you wish to commit staged**, use .gitignore to ignore any files you do not wish to commit. 
 
 To stage all files in the local repo do 
@@ -112,7 +112,7 @@ To unstage or remove a file from a stage you can do
 After staging anything through the **add** command I recommend you check the status by doing
 > git status
 
-This will allow you to check for all the staged files and ensure nothing you don't want to be commited is staged.
+This will allow you to check for all the staged files and ensure nothing you don't want to be committed is staged.
 
 ### Git Commit
 
@@ -127,12 +127,12 @@ After changing the git global config all that's needed is
 
 > git commit
 
-Which will open up the message in VSCode and you can enter the message. When you are done entering your message save with crtl + s 
-and close the tab with ctrl + f4. Once the tab is closed the changes will be commited locally.
+Which will open up the message in VSCode and you can enter the message. When you are done entering your message save with CTRL + S 
+and close the tab with CTRL + F4. Once the tab is closed the changes will be committed locally.
 
 ### Git Push
 
-To upload your commited changes to Github you can do
+To upload your committed changes to Github you can do
 > git push origin <!--Branch name here-->
 
 To reduce the amount of writing you have to do per every time you git push I recommend you do
@@ -176,7 +176,7 @@ What this does is it reverts the last commit to the staging phase and does not r
 reverts from the current head which is the branch you are on currently. If you do 
 > git status
 
-You should see the files you modified are staged but not yet comitted.
+You should see the files you modified are staged but not yet committed.
 
 ### Removing a Pushed Commit from your Repository
 **Source** *https://www.youtube.com/watch?v=g8UgXgqEJXs&list=PLnTRniWXnjf_abqo7qnrPsqo148VRYxjv&index=6*
@@ -199,7 +199,7 @@ Check the files in which you have modified, ensure you have removed any sensitiv
 > git add .
 > git status
 
-You will then see that in the terminal there have been no percieved changes. This is because you are sort of one commit behind, at least locally. After the sensitive
+You will then see that in the terminal there have been no perceived changes. This is because you are sort of one commit behind, at least locally. After the sensitive
 information has been removed you can do 
 > git push -f origin <!--Branch Name-->
 
@@ -211,15 +211,27 @@ can be a bit quicker but can also lead to losing code. I recommend using git res
 ### Git Checkout
 **Source**: *https://www.youtube.com/watch?v=g8UgXgqEJXs&list=PLnTRniWXnjf_abqo7qnrPsqo148VRYxjv&index=6*
 
-If you have modified a file since your last commit and you only want to undo the modifications to that file rather than reseting the entire
+If you have modified a file since your last commit and you only want to undo the modifications to that file rather than resetting the entire
 branch you can first do 
 > git status
 
-Check that you have not commited or staged the file you want to revert to the state it was in at the last commit and do 
+Check that you have not committed or staged the file you want to revert to the state it was in at the last commit and do 
 > git checkout <!--FileName-->.<!--FileExtension-->
 
 For example you could do 
 > git checkout index.html
 
 To just revert index.html and nothing else. I recommend this over git reset --hard in almost all situations.
+
+***
+## Git Stash
+
+In the event you are working on something and you have to direct your attention to another part of the project before you could finish the work you are already working on git
+stash can be useful. To stash your changes since your last commit do 
+> git add .
+> git status
+> git stash
+
+Remember to check that you haven't staged anything you don't want to stage
+
 ***
