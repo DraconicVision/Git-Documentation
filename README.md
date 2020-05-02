@@ -32,8 +32,11 @@ This will display your logs in terminal.
 ***
 ## Git Branching
 **Source**: *https://www.youtube.com/watch?v=QG44fDn_PMc&list=PLnTRniWXnjf_abqo7qnrPsqo148VRYxjv&index=4*
+            *https://www.educative.io/edpresso/how-to-delete-remote-branches-in-git*
+            *http://www.codeblocq.com/2016/01/Untrack-files-already-added-to-git-repository-based-on-gitignore/*
 **Note**:   Remember, **all code in the master branch should be functioning** and ready for production. Use other branches for
             developmental code.
+            **Branch names are case sensitive**. I recommend you keep all your branches names lowercase.
 
 Start by doing
 > git branch
@@ -49,6 +52,9 @@ To switch branches do
 
 To both create a new branch and switch to that branch in one command do 
 > git checkout -b <!--Git branch name here-->
+
+To delete a branch you can do 
+> git branch -d <!--Branch name you wish to delete here-->
 ***
 ## Git SSH
 **Source**: *https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh*
@@ -93,6 +99,7 @@ This will download the repo you wish to your local PC.
 **Source**: *https://www.youtube.com/watch?v=nquxBcx929o&list=PLnTRniWXnjf_abqo7qnrPsqo148VRYxjv&index=3*
 
 ### Git Staging & Status
+**Source**: *http://www.codeblocq.com/2016/01/Untrack-files-already-added-to-git-repository-based-on-gitignore/*
 
 Before committing anything I recommend you do
 > git status 
@@ -108,6 +115,11 @@ To stage a particular file you can do
 
 To unstage or remove a file from a stage you can do 
 > git rm --cached <!--FileName-->.<!--FileExtension-->
+
+To unstage or remove all files from the stage you can do 
+> git rm -r cached .
+
+The RM means remove, -r allows the recursive model and . means all. 
 
 After staging anything through the **add** command I recommend you check the status by doing
 > git status
